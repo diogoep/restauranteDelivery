@@ -1,0 +1,45 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Mineirinho Ultra Adventures</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+ 
+
+</head>
+<body>
+    <div th:replace="fragments/header :: header">
+    </div>
+
+ <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h3 class="header center orange-text">Pratos</h3>
+      <br>
+   <div class="row">
+    <div class="col s12 m6" th:each = "prato: ${listaPratos}" th:if="${prato.ativo == true}">
+      <div class="card">
+        <div class="card-image">
+<img height="400" th:src="@{'/images/'+${prato.nomePrato}+'.'+${prato.extensaoImagemPrato}}">
+          <span th:text="${prato.nomePrato}" class="card-title"></span>
+          <a href="/login" sec:authorize="!hasAnyRole('USER','ADMIN')" class="btn-floating halfway-fab waves-effect waves-light  green lighten-2"><i class="material-icons">add</i></a>
+          <a th:href="@{/excluirPrato/{codigoP}(codigoP = ${prato.codigoPrato})}" sec:authorize="hasAnyRole('ADMIN')" class="btn-floating halfway-fab waves-effect waves-light  green lighten-2"><i class="material-icons">remove</i></a>
+          <a th:href="@{/adicionarItem/{codigoP}(codigoP = ${prato.codigoPrato})}"  sec:authorize="hasAnyRole('USER')" class="btn-floating halfway-fab waves-effect waves-light  green lighten-2"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p th:text ="'R$'+${prato.precoPrato}">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+<div th:replace="fragments/footer :: footer">
+</div>
+</html>

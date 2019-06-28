@@ -1,0 +1,53 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Mineirinho Ultra Adventures</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+</head>
+<body>
+    <div th:replace="fragments/header :: header">
+    </div>
+ <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h3 class="header center orange-text">Pedido</h3>
+      <br>
+<table class="responsive-table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Imagem</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each = "item: ${session.pedido}">
+      	<td th:text = "${item.prato.nomePrato}"></td>
+      	<td><img width="200" height="50" th:src="@{'/images/'+${item.prato.nomePrato}+'.'+${item.prato.extensaoImagemPrato}}"></td>
+      	<td th:text="'R$:'+${item.prato.precoPrato}"></td>
+      	<td th:text="${item.quantidade}"></td>
+    	<td><a th:href="@{/adicionarItem/{codigoP}(codigoP = ${item.prato.codigoPrato})}"><button type="button" class="btn green lighten-2">Adicionar</button></a></td>
+    	<td><a th:href="@{/removerItem/{codigoP}(codigoP = ${item.prato.codigoPrato})}"><button type="button" class="btn green lighten-2">Excluir</button></a></td>
+    </tr>
+    <tr>
+        	<td colspan="3"><a th:if="${not #lists.isEmpty(session.pedido)}" th:href="@{/salvarPedido}"><button type="button" class="btn green lighten-2">Finalizar Pedido</button></a></td>
+        	<td colspan="3" th:if="${not #lists.isEmpty(session.pedido)}" th:text="${'Total: R$' +#aggregates.sum(session.pedido.![prato.precoPrato * quantidade])}">
+    </td>
+    </tr>
+  </tbody>
+</table><br>
+</div>
+</div>
+</body>
+<div th:replace="fragments/footer :: footer">
+</div>
+</html>

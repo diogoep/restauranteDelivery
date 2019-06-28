@@ -1,0 +1,47 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Mineirinho Ultra Adventures</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+</head>
+<body>
+    <div th:replace="fragments/header :: header">
+    </div>
+ <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h3 class="header center orange-text">Atualizar Usuário</h3>
+      
+		<form action="/Cliente/salvarCliente" method="POST" th:object="${cliente}">
+			
+		<div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+			<div th:each="detailedError : ${#fields.detailedErrors()}">
+				<span th:text="${detailedError.message}"></span>
+			
+		</div>
+		</div>
+			<input type="hidden" th:field="*{codigoCliente}"/> 
+			<label>Nome:</label> <input type="text" th:field="*{nomeCliente}" th:value="${cliente.nomeCliente}"><br>
+			<label>Email:</label> <input type="email" th:field="*{emailCliente}" th:value="${cliente.emailCliente}"><br>
+			<label>Senha:</label> <input type="password" th:field="*{senhaCliente}" ><br>
+			<input type="hidden" th:field="*{cpfCliente}" data-mask="000.000.000-00" data-mask-reverse="true" th:value="${cliente.cpfCliente}"/><br>
+			<label>Data de Nascimento:</label> <input type="date" th:field="*{dataNascimentoCliente}" th:value="${cliente.dataNascimentoCliente}"><br>
+			<label>Endereço:</label> <input type="text" th:field="*{enderecoCliente}" th:value="${cliente.enderecoCliente}"><br>
+			<input class="btn green lighten-2" type="submit" value="Cadastrar">
+		</form>
+		
+</div>
+</div>
+<script src="../js/jquery-3.4.1.min.js"></script>
+		<script src="../js/jquery.mask.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+</body>
+<div th:replace="fragments/footer :: footer">
+</div>
+</html>

@@ -1,0 +1,36 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Mineirinho Ultra Adventures</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+</head>
+<body>
+    <div th:replace="fragments/header :: header">
+    </div>
+
+ <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h3 class="header center orange-text">Cadastrar Prato</h3>
+      <br>
+		<form action="" method="POST" enctype="multipart/form-data">
+			<label>Nome do Prato:</label> <input type="text" name="nomePrato"> <br>
+			<label>Imagem:</label> <input type="file" name="imagemPrato"><br>
+			<label>Preço do Prato:</label><br> <input type="text" name="precoPrato"><br>
+			<input class="btn green lighten-2" type="submit" value="Cadastrar">
+		</form>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script src="../js/jquery.mask.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+</div>
+</div>
+</body>
+<div th:replace="fragments/footer :: footer">
+</div>
+</html>

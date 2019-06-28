@@ -1,0 +1,44 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Mineirinho Ultra Adventures</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+</head>
+<body>
+    <div th:replace="fragments/header :: header">
+    </div>
+ <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h3 class="header center orange-text">Pedidos</h3>
+      <br>
+<table class="centered">
+  <thead>
+    <tr>
+      <th scope="col">Codigo</th>
+      <th scope="col">Data do Pedido</th>
+      <th scope="col">Data de Confirmação</th>
+      <th scope="col">Valor do Pedido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each ="pedido: ${listaPedidos}">
+    	<td><a th:text ="${pedido.codigo}" th:href="@{/listarPedido/{codigoPedido}(codigoPedido = ${pedido.codigo})}"></a></td> 
+      	<td th:text = "${pedido.dataConfirmacao}"></td>
+      	<td th:text = "${pedido.dataPedidoAceito}"> </td>
+      	<td th:text ="'R$:'+${pedido.valorCompra}"></td>
+    	</tr>
+  </tbody>
+</table><br>
+</div>
+</div>
+</body>
+<div th:replace="fragments/footer :: footer">
+</div>
+</html>

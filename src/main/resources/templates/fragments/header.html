@@ -1,0 +1,52 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Mineirinho Ultra Adventures</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<div th:fragment="header">
+  <nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper"><a href="/listarPratos" class="brand-logo left" ><img height=110% width=25% src="../images/logo.png"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a sec:authorize="!hasAnyRole('USER','ADMIN')" href="/login">Login</a>
+        <a sec:authorize="hasAnyRole('USER','ADMIN')" href="/logout">Logout</a></li>
+                <li><a href="/listarPratos">Pratos</a></li>
+         <li><a sec:authorize="hasAnyRole('USER')" href="/listarPedidos">Pedidos</a>
+        <a sec:authorize="hasAnyRole('ADMIN')" href="/Gerente/listarTodosPedidos">Pedidos</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/Gerente/atualizaForm">Atualizar Usuário</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/Gerente/formularioGerente">Cadastrar Gerente</a></li>
+        <li><a sec:authorize="!hasAnyRole('ADMIN','USER')" href="/Cliente/formularioCliente">Cadastrar</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/listarClientes">Clientes</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/listarGerentes">Gerentes</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/formularioPrato">Adicionar Prato</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/Gerente/listarPedidos">Pendentes</a></li>
+        <li><a sec:authorize="hasAnyRole('USER')" href="/Cliente/atualizaForm">Atualizar Usuário</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+<li><a sec:authorize="!hasAnyRole('USER','ADMIN')" href="/login">Login</a>
+        <a sec:authorize="hasAnyRole('USER','ADMIN')" href="/logout">Logout</a></li>
+                <li><a href="/listarPratos">Pratos</a></li>
+         <li><a sec:authorize="hasAnyRole('USER')" href="/listarPedidos">Pedidos</a>
+        <a sec:authorize="hasAnyRole('ADMIN')" href="/Gerente/listarTodosPedidos">Pedidos</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/Gerente/atualizaForm">Atualizar Usuário</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/Gerente/formularioGerente">Cadastrar Gerente</a></li>
+        <li><a sec:authorize="!hasAnyRole('ADMIN','USER')" href="/Cliente/formularioCliente">Cadastrar</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/listarClientes">Clientes</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/listarGerentes">Gerentes</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/formularioPrato">Adicionar Prato</a></li>
+        <li><a sec:authorize="hasAnyRole('ADMIN')" href="/Gerente/listarPedidos">Pendentes</a></li>
+        <li><a sec:authorize="hasAnyRole('USER')" href="/Cliente/atualizaForm">Atualizar Usuário</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  </div>
+  

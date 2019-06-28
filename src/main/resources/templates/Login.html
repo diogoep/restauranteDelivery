@@ -1,0 +1,31 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Mineirinho Ultra Adventures</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+</head>
+<body>
+    <div th:replace="fragments/header :: header">
+    </div>
+
+ <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Login</h1>
+	<form method="POST" action="/login">
+	<label> User Name : <input type="text" name="username" value="23715506806"/> </label>
+	<label> Password : <input type="password" name="password" value="admin"/> </label>
+	<button type="submit" class="btn green lighten-2">Entrar</button>
+</form>
+</div>
+</div>
+</body>
+<div th:replace="fragments/footer :: footer">
+</div>
+</html>

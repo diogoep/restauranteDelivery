@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<div th:fragment="footer" >
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l12 s12">
+          <h5 class="white-text">Outback Steakhouse</h5>
+          <p class="grey-text text-lighten-4">É o ambiente perfeito para juntar todo mundo! Quer ver? O cardápio inclui porções bem generosas, perfeitas para compartilhar! A incomparável Aussie Cheese Fries (Batata com bacon e queijo), a suculenta Ribs On The Barbie (nossa costelinha), nosso ícone Bloomin’ Onion (cebola empanhada), pão australiano, chopp na caneca congelada e muitas outras opções vão acompanhar a sua visita. Happy hour, almoço, jantar, comemorações, fim de semana: venha para o Outback! Conheça nossos favoritos!
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Feito por Diogo
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/init.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script>
+  $(document).ready(function(){
+	    $('.collapsible').collapsible();
+	  });	        
+</script>
+</div> 
+  </body>
+</html>
